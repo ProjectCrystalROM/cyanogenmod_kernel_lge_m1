@@ -2344,10 +2344,22 @@ static int touch_probe(struct i2c_client *client, const struct i2c_device_id *id
 	} else break;
 	}
 
+#if defined(CONFIG_MACH_MSM8909_M1_MPCS_US) && defined(TOUCH_DEVICE_MIT200_PROC4)
+	/* This variant ships no MIT200 update image. The controller runs its own
+	 * firmware; do not block input registration on a missing update file.
+	 */
+	if (ret == TOUCH_FAIL) {
+		TOUCH_ERR("failed to read IC firmware version\n");
+		goto exit_device_init_fail;
+	}
+	TOUCH_LOG("MPCS MIT200: using controller firmware v%X.%02X\n",
+		pDriverData->icFwInfo.isOfficial, pDriverData->icFwInfo.version);
+#else
 	ret = pDeviceSpecificFunc->GetBinFirmwareInfo(client, NULL, &pDriverData->binFwInfo);
 	if( ret  == TOUCH_FAIL ) {
 		goto exit_device_init_fail;
 	}
+#endif
 
 #if !defined( TOUCH_DEVICE_MIT200_PROC4 )
 	if (touch_maker_id == 1)
@@ -2418,6 +2430,9 @@ static int touch_probe(struct i2c_client *client, const struct i2c_device_id *id
 	//if( pDriverData->icFwInfo.isOfficial )
 	
 	{
+#if defined(CONFIG_MACH_MSM8909_M1_MPCS_US) && defined(TOUCH_DEVICE_MIT200_PROC4)
+		queue_delayed_work(touch_wq, &pDriverData->work_init, 0);
+#else
 		if( (pDriverData->binFwInfo.version != pDriverData->icFwInfo.version) || retires <= 0)
 		{
 			pDriverData->useDefaultFirmware = TOUCH_TRUE;
@@ -2425,6 +2440,7 @@ static int touch_probe(struct i2c_client *client, const struct i2c_device_id *id
 		} else {
 			queue_delayed_work(touch_wq, &pDriverData->work_init, 0);
 		}
+#endif
 	}
 	pDeviceSpecificFunc->SetLpwwgDebug_enable(client,0);
 

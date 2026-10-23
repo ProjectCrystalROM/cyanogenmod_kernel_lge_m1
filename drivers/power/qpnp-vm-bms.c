@@ -2301,13 +2301,30 @@ static void voltage_soc_timeout_work(struct work_struct *work)
 	struct qpnp_bms_chip *chip = container_of(work,
 				struct qpnp_bms_chip,
 				voltage_soc_timeout_work.work);
+	int rc = 0;
+	bool use_voltage_soc = false;
 
 	mutex_lock(&chip->bms_device_mutex);
 	if (!chip->bms_dev_open) {
 		pr_warn("BMS device not opened, using voltage based SOC\n");
-		chip->dt.cfg_use_voltage_soc = true;
+		mutex_lock(&chip->last_soc_mutex);
+		rc = calculate_soc_from_voltage(chip);
+		if (!rc) {
+			chip->dt.cfg_use_voltage_soc = true;
+			use_voltage_soc = true;
+		}
+		mutex_unlock(&chip->last_soc_mutex);
 	}
 	mutex_unlock(&chip->bms_device_mutex);
+
+	if (use_voltage_soc) {
+		power_supply_changed(&chip->bms_psy);
+		mod_delayed_work(system_wq, &chip->monitor_soc_work, 0);
+	} else if (rc) {
+		pr_warn("voltage SOC unavailable (%d), retrying fallback\n", rc);
+		mod_delayed_work(system_wq, &chip->voltage_soc_timeout_work,
+				msecs_to_jiffies(5000));
+	}
 }
 
 static int get_prop_bms_capacity(struct qpnp_bms_chip *chip)
