@@ -1,39 +1,37 @@
-# LG K7 source kernel for CM13 bring-up
+# LG K7 source kernel for CM13
 
-**Status, 2026-10-24: source-built kernel boots the working LG K7 MS330 port.**
-Branch: `bringup/cm13-m1`. The qualified configuration is 32-bit ARM with
-`m1_mpcs_us-perf_defconfig`, selected by the matching product device tree.
-Other K7 variants are not qualified by this work.
+**2026-10-25: source-built kernel qualified in the enforcing CM13 ROM on
+MetroPCS MS330.** Branch `bringup/cm13-m1`, 32-bit ARM,
+`m1_mpcs_us-perf_defconfig`. Other K7 variants remain unqualified.
 
-Use this with the matching
-[product](https://github.com/airi-kozume/cyanogenmod_device_lge_m1/tree/bringup/cm13-m1),
-[common device](https://github.com/airi-kozume/android_device_lge_m1-common/tree/resurrection/cm13-static-audit)
+Use matching [product](https://github.com/airi-kozume/cyanogenmod_device_lge_m1/tree/bringup/cm13-m1),
+[common](https://github.com/airi-kozume/android_device_lge_m1-common/tree/resurrection/cm13-static-audit)
 and [vendor](https://github.com/airi-kozume/proprietary_vendor_lge_m1/tree/bringup/cm13-m1)
-branches. The product README contains the full runtime status.
+branches. The product README is the current hardware matrix.
 
-## Confirmed in the combined port
+## Qualified integration
 
-- Clean installation boots normally to the launcher.
-- Display, touch, backlight, navigation and battery reporting are restored.
-- Wi-Fi Internet access and Bluetooth/A2DP operate, including concurrent use;
-  the previously observed WCNSS watchdog panic has not returned in these tests.
-- Rear/front still capture, sensors/rotation and rear video/audio recording work
-  with the selected device/vendor components.
-- SIM detection, IMEI and baseband are established; live data service is pending.
+The Android-M policy29/30/ioctl compatibility and rootfs-labeling backports boot
+SELinux enforcing with the matching device policy. Existing userdebug exceptions
+remain individually permissive; the system is not globally permissive. Installed
+18 kernel modules pass release/vermagic and symbol-CRC compatibility audits.
 
-These are combined-ROM results, not a claim that kernel code alone provides
-the corresponding userspace services or that every kernel feature is tested.
+The combined ROM boots normally and supports display/touch/navigation, Wi-Fi
+persistence, Bluetooth automatic reconnect/A2DP, speaker audio, both cameras'
+photos and video/audio, flash, rotation, hardware H.264 playback, MTP/PTP with
+and without ADB, and GPS/Maps. Overnight idle has shown no observed problems.
+These are combined-ROM results; matching userspace and vendor integration matter.
+The earlier WCNSS watchdog panic has not returned in qualified testing.
 
-## Remaining work
+## Remaining scope
 
-SELinux is unresolved. The boot-tested `cm_m1_radio_noselinux` product disables
-it; the kernel/policy version mismatch still needs investigation before the
-SELinux-enabled product can be qualified. Live cellular service requires an
-active compatible SIM. GPS, suspend/battery endurance and longer workloads
-remain validation items. The previous blanket “no known issues” claim was too
-broad and is superseded by this status.
+Active-SIM cellular data and normal-use battery endurance await testing. SIM
+detection/IMEI/baseband are established. Calls/call audio are outside scope:
+VoLTE is unsupported and local networks require it. USB OTG is unsupported on
+this device. Longer workload and detailed GPS-status checks are separate from
+basic functionality. Overnight idle is not a measurement of suspend residency.
 
-Kernel/image hashes, ramdisk contents, module installation and partition bounds
-are checked in the surrounding bring-up workspace. Preserve its known-good ZIPs
-when testing policy or kernel changes. The upstream Linux [README](README) and
-[COPYING](COPYING) remain unchanged.
+Surrounding workspace audits check kernel/image hashes, ramdisk/policy, module
+installation, partition limits and actual signed OTA payloads. Preserve hashed
+rollback packages. Upstream Linux [README](README) and [COPYING](COPYING)
+remain unchanged.
