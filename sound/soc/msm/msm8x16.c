@@ -2602,6 +2602,12 @@ static int msm8x16_asoc_machine_probe(struct platform_device *pdev)
 		goto err1;
 	}
 
+	/* Every probe error path must be able to drain clock work safely. */
+	INIT_DELAYED_WORK(&pdata->disable_mclk_work, disable_mclk);
+	mutex_init(&pdata->cdc_mclk_mutex);
+	atomic_set(&pdata->mclk_rsc_ref, 0);
+	atomic_set(&pdata->mclk_enabled, false);
+
 	pdata->vaddr_gpio_mux_spkr_ctl =
 		ioremap(LPASS_CSR_GP_IO_MUX_SPKR_CTL , 4);
 	if (!pdata->vaddr_gpio_mux_spkr_ctl) {
@@ -2768,11 +2774,6 @@ static int msm8x16_asoc_machine_probe(struct platform_device *pdev)
 	ret = snd_soc_of_parse_card_name(card, "qcom,model");
 	if (ret)
 		goto err;
-	/* initialize timer */
-	INIT_DELAYED_WORK(&pdata->disable_mclk_work, disable_mclk);
-	mutex_init(&pdata->cdc_mclk_mutex);
-	atomic_set(&pdata->mclk_rsc_ref, 0);
-	atomic_set(&pdata->mclk_enabled, false);
 	atomic_set(&quat_mi2s_clk_ref, 0);
 	atomic_set(&auxpcm_mi2s_clk_ref, 0);
 
@@ -2795,6 +2796,9 @@ static int msm8x16_asoc_machine_probe(struct platform_device *pdev)
 	}
 	return 0;
 err:
+	/* The codec may have queued this work before card registration failed. */
+	cancel_delayed_work_sync(&pdata->disable_mclk_work);
+	mutex_destroy(&pdata->cdc_mclk_mutex);
 	if (pdata->vaddr_gpio_mux_spkr_ctl)
 		iounmap(pdata->vaddr_gpio_mux_spkr_ctl);
 	if (pdata->vaddr_gpio_mux_mic_ctl)
@@ -2811,13 +2815,16 @@ static int msm8x16_asoc_machine_remove(struct platform_device *pdev)
 	struct snd_soc_card *card = platform_get_drvdata(pdev);
 	struct msm8916_asoc_mach_data *pdata = snd_soc_card_get_drvdata(card);
 
+	/* Stop codec users before draining work and releasing its resources. */
+	snd_soc_unregister_card(card);
+	cancel_delayed_work_sync(&pdata->disable_mclk_work);
+
 	if (pdata->vaddr_gpio_mux_spkr_ctl)
 		iounmap(pdata->vaddr_gpio_mux_spkr_ctl);
 	if (pdata->vaddr_gpio_mux_mic_ctl)
 		iounmap(pdata->vaddr_gpio_mux_mic_ctl);
 	if (pdata->vaddr_gpio_mux_pcm_ctl)
 		iounmap(pdata->vaddr_gpio_mux_pcm_ctl);
-	snd_soc_unregister_card(card);
 	mutex_destroy(&pdata->cdc_mclk_mutex);
 	return 0;
 }
