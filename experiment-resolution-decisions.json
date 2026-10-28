@@ -1,0 +1,526 @@
+[
+  {
+    "path": "crypto/aes_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "aes"
+    ],
+    "new_aliases": [
+      "aes",
+      "aes-generic"
+    ]
+  },
+  {
+    "path": "crypto/ansi_cprng.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "stdrng"
+    ],
+    "new_aliases": [
+      "ansi_cprng",
+      "stdrng"
+    ]
+  },
+  {
+    "path": "crypto/blowfish_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "blowfish"
+    ],
+    "new_aliases": [
+      "blowfish",
+      "blowfish-generic"
+    ]
+  },
+  {
+    "path": "crypto/camellia_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "camellia"
+    ],
+    "new_aliases": [
+      "camellia",
+      "camellia-generic"
+    ]
+  },
+  {
+    "path": "crypto/cast5_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "cast5"
+    ],
+    "new_aliases": [
+      "cast5",
+      "cast5-generic"
+    ]
+  },
+  {
+    "path": "crypto/cast6_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "cast6"
+    ],
+    "new_aliases": [
+      "cast6",
+      "cast6-generic"
+    ]
+  },
+  {
+    "path": "crypto/ccm.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "ccm_base",
+      "rfc4309"
+    ],
+    "new_aliases": [
+      "ccm",
+      "ccm_base",
+      "rfc4309"
+    ]
+  },
+  {
+    "path": "crypto/ctr.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "rfc3686"
+    ],
+    "new_aliases": [
+      "ctr",
+      "rfc3686"
+    ]
+  },
+  {
+    "path": "crypto/des_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "des",
+      "des3_ede"
+    ],
+    "new_aliases": [
+      "des",
+      "des-generic",
+      "des3_ede",
+      "des3_ede-generic"
+    ]
+  },
+  {
+    "path": "crypto/gcm.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "gcm_base",
+      "rfc4106",
+      "rfc4543"
+    ],
+    "new_aliases": [
+      "gcm",
+      "gcm_base",
+      "rfc4106",
+      "rfc4543"
+    ]
+  },
+  {
+    "path": "crypto/ghash-generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "ghash"
+    ],
+    "new_aliases": [
+      "ghash",
+      "ghash-generic"
+    ]
+  },
+  {
+    "path": "crypto/krng.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "stdrng"
+    ],
+    "new_aliases": [
+      "krng",
+      "stdrng"
+    ]
+  },
+  {
+    "path": "crypto/salsa20_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "salsa20"
+    ],
+    "new_aliases": [
+      "salsa20",
+      "salsa20-generic"
+    ]
+  },
+  {
+    "path": "crypto/serpent_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "serpent",
+      "tnepres"
+    ],
+    "new_aliases": [
+      "serpent",
+      "serpent-generic",
+      "tnepres"
+    ]
+  },
+  {
+    "path": "crypto/sha1_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "sha1"
+    ],
+    "new_aliases": [
+      "sha1",
+      "sha1-generic"
+    ]
+  },
+  {
+    "path": "crypto/sha256_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "sha224",
+      "sha256"
+    ],
+    "new_aliases": [
+      "sha224",
+      "sha224-generic",
+      "sha256",
+      "sha256-generic"
+    ]
+  },
+  {
+    "path": "crypto/sha512_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "sha384",
+      "sha512"
+    ],
+    "new_aliases": [
+      "sha384",
+      "sha384-generic",
+      "sha512",
+      "sha512-generic"
+    ]
+  },
+  {
+    "path": "crypto/tea.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "xeta",
+      "xtea"
+    ],
+    "new_aliases": [
+      "tea",
+      "xeta",
+      "xtea"
+    ]
+  },
+  {
+    "path": "crypto/tgr192.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "tgr128",
+      "tgr160"
+    ],
+    "new_aliases": [
+      "tgr128",
+      "tgr160",
+      "tgr192"
+    ]
+  },
+  {
+    "path": "crypto/twofish_generic.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "twofish"
+    ],
+    "new_aliases": [
+      "twofish",
+      "twofish-generic"
+    ]
+  },
+  {
+    "path": "crypto/wp512.c",
+    "decision": "Keep upstream additional module aliases; all existing vendor crypto aliases retained",
+    "old_aliases": [
+      "wp256",
+      "wp384"
+    ],
+    "new_aliases": [
+      "wp256",
+      "wp384",
+      "wp512"
+    ]
+  },
+  {
+    "path": "arch/arm/kernel/irq.c",
+    "decision": "Vendor irq_set_affinity_locked(d,affinity,0) already implements the non-forced affinity behavior; do not reintroduce obsolete raw-chip path.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "arch/arm/mach-sa1100/generic.c",
+    "decision": "Combine reset-status clearing with vendor enum REBOOT_SOFT.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "arch/arm64/Kconfig",
+    "decision": "Vendor already selects ARCH_SUPPORTS_ATOMIC_RMW and adds other needed architecture features; preserve all.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "arch/arm64/kernel/setup.c",
+    "decision": "Integrate per-CPU MIDR cache and online CPU reporting, preserving vendor CPU setup/features and hardware identifier callback. ARM64 is not the supported/tested configuration.",
+    "resolved_blocks": 6
+  },
+  {
+    "path": "arch/arm64/kernel/time.c",
+    "decision": "Vendor uses generalized sched_clock infrastructure; obsolete private clock implementation must not be restored.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "arch/arm64/kernel/traps.c",
+    "decision": "Preserve vendor SError handling while applying upstream user-signal delivery.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "arch/arm64/mm/fault.c",
+    "decision": "Preserve vendor ESR names and reject cache-maintenance faults as writes per stable fix.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "arch/mn10300/Kconfig",
+    "decision": "Keep removal of obsolete generic IRQ selection and add UID16 support.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "arch/powerpc/crypto/sha1.c",
+    "decision": "Add upstream generic SHA1 alias without dropping existing alias.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "arch/x86/Kconfig",
+    "decision": "Vendor already includes upstream atomic RMW selection plus required stack features.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "crypto/blkcipher.c",
+    "decision": "Move minimum walk-block size calculation before allocation failure as upstream requires, using vendor walk_blocksize field.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "fs/ubifs/dir.c",
+    "decision": "Use stable cleanup/error path instead of early return; vendor-only redundant logging argument not carried into removed branch.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "include/linux/cpu.h",
+    "decision": "Apply stable notifier configuration layout while preserving vendor unlocked notifier APIs and stubs.",
+    "resolved_blocks": 4
+  },
+  {
+    "path": "include/linux/usb/quirks.h",
+    "decision": "Retain Qualcomm OTG PET quirk and add upstream remote-wakeup/LPM quirks.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "kernel/cpu.c",
+    "decision": "Retain exported unlocked unregister helper before new HOTPLUG-only block.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "kernel/irq/proc.c",
+    "decision": "Keep vendor depth proc entries and upstream mutex-unlock exit label.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "kernel/sched/core.c",
+    "decision": "Keep vendor debug configuration gate and add upstream state-filter restriction.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "kernel/sched/rt.c",
+    "decision": "Vendor task dump replaces the changed diagnostic-only printk; preserve diagnostic behavior.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "kernel/time/sched_clock.c",
+    "decision": "Vendor 64-bit sequence-count clock and setup wrapper supersede old 32-bit path; retain widths and wrapper.",
+    "resolved_blocks": 2
+  },
+  {
+    "path": "lib/genalloc.c",
+    "decision": "Vendor aligned allocator already restarts each chunk search from literal0, uses chunk_len and newer offset-aware bitmap helper; upstream start_bit reset is already satisfied.",
+    "resolved_blocks": 2
+  },
+  {
+    "path": "mm/truncate.c",
+    "decision": "Retain shared isize extension implementation and remove obsolete mutex assertion per upstream stable.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "mm/vmscan.c",
+    "decision": "Retain vendor three-case writeback reclaim algorithm and apply may_enter_fs deadlock check to case2.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "security/keys/gc.c",
+    "decision": "Upstream destroys instantiated key data before security/quota cleanup; avoid duplicate vendor destructor and retain key_user_put.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "sound/core/compress_offload.c",
+    "decision": "Guard codec-capability ioctl for overflow while preserving vendor split ioctl/drain locking arrangement.",
+    "resolved_blocks": 2
+  },
+  {
+    "path": "net/bluetooth/sco.c",
+    "decision": "Check address length using vendor parameter alen, then preserve bounded sockaddr copy.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "net/core/dev.c",
+    "decision": "NAPI backlog migration and locked dequeue are already backported; preserve vendor dropped-offline-packet behavior.",
+    "resolved_blocks": 2
+  },
+  {
+    "path": "net/ipv4/inet_connection_sock.c",
+    "decision": "Preserve child socket mark and clear inherited multicast list.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "net/ipv4/netfilter/arp_tables.c",
+    "decision": "Apply upstream centralized native/compat entry-offset validation in place of equivalent older local check helper; preserve all nonconflicting vendor code.",
+    "resolved_blocks": 3
+  },
+  {
+    "path": "net/ipv4/netfilter/ip_tables.c",
+    "decision": "Apply upstream centralized native/compat entry-offset validation in place of equivalent older local check helper; preserve all nonconflicting vendor code.",
+    "resolved_blocks": 3
+  },
+  {
+    "path": "net/ipv6/netfilter/ip6_tables.c",
+    "decision": "Apply upstream centralized native/compat entry-offset validation in place of equivalent older local check helper; preserve all nonconflicting vendor code.",
+    "resolved_blocks": 3
+  },
+  {
+    "path": "net/ipv4/ping.c",
+    "decision": "Retain debug naming and acquire missing ping table write lock.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "net/ipv6/addrconf.c",
+    "decision": "Adopt stable RS/DAD work/timer lifecycle while preserving LG rmnet DAD delay and logging; use stable link-local source validation.",
+    "resolved_blocks": 4
+  },
+  {
+    "path": "net/wireless/nl80211.c",
+    "decision": "Apply skb control-buffer clearing in vendor shared event sender; do not reintroduce superseded testmode-only function or invalid void return.",
+    "resolved_blocks": 2
+  },
+  {
+    "path": "net/wireless/scan.c",
+    "decision": "Add stable BSS entry count limit while preserving vendor3second scan expiry policy.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/base/core.c",
+    "decision": "Vendor already adds stable mutex unlock; retain its cleanup wrapper for remaining vendor users.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/base/firmware_class.c",
+    "decision": "Validate firmware name using vendor fw_desc API before request preparation.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/cpufreq/cpufreq_ondemand.c",
+    "decision": "Vendor proportional-load else branch already prevents fallthrough; stable return before else would be redundant.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/devfreq/devfreq.c",
+    "decision": "Vendor sizeof(*time_in_state) already matches corrected element type and avoids underallocation.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/media/v4l2-core/v4l2-compat-ioctl32.c",
+    "decision": "Retain vendor event union members and add compat_s64 to force correct compat alignment.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/mfd/pm8921-core.c",
+    "decision": "Vendor already guards NULL pmic and frees complete object; retain extended regulator cleanup; resetting freed irq pointer is unnecessary.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/mmc/card/block.c",
+    "decision": "Keep vendor NULL guard plus stable sysfs newline; existing reset-success/no-pending-request logic already covers stable retry fix.",
+    "resolved_blocks": 2
+  },
+  {
+    "path": "drivers/mmc/card/queue.h",
+    "decision": "Retain packing statistics API and add upstream RPMB access API.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/mmc/core/core.c",
+    "decision": "Vendor already aliases context pointer and additionally locks its update; retain BKOPS work handler.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/mmc/host/sdhci.c",
+    "decision": "Apply sleeping/unlocked clock wait with20iterations to preserve20ms deadline; GPIO/presence fallback already occurs outside lock in vendor path, remove duplicate auto-merge GPIO query.",
+    "resolved_blocks": 2
+  },
+  {
+    "path": "drivers/mtd/ubi/fastmap.c",
+    "decision": "Preserve vendor UBI log/device and erase-time parameters; add stable orphan cleanup and consolidated scrub argument.",
+    "resolved_blocks": 2
+  },
+  {
+    "path": "drivers/usb/core/hub.c",
+    "decision": "Combine vendor disconnected guard with stable locked hdev capture/refcount; retain matching vendor exit label.",
+    "resolved_blocks": 2
+  },
+  {
+    "path": "drivers/usb/core/quirks.c",
+    "decision": "Combine vendor OTG test device and new stable wakeup/LPM device quirks.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/usb/dwc3/core.c",
+    "decision": "Use stable teardown order: exit child/core work before PHY suspend and synchronous runtime put; retain vendor mode/OTG handling.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/usb/dwc3/gadget.c",
+    "decision": "Preserve vendor PHY cleanup/isoc retry/ZLP and advanced queue handling; add stable command errors, protocol halt argument, total request actual accounting and reset remainder count per request.",
+    "resolved_blocks": 6
+  },
+  {
+    "path": "drivers/usb/gadget/u_ether.c",
+    "decision": "Remove IRQ suppression per stable to prevent undelivered completion; retain other vendor Ethernet features.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/usb/host/xhci-plat.c",
+    "decision": "Keep runtime-disable and add controller-removing state before teardown.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/usb/host/xhci-ring.c",
+    "decision": "Use one coherent stable two-TD zero-packet algorithm. Reviewed complete helper delta: vendor differences are the older one-TD ZLP algorithm only; do not mix both.",
+    "resolved_blocks": 2
+  },
+  {
+    "path": "drivers/usb/host/xhci.h",
+    "decision": "Preserve vendor ZLP tracking and add stable actual-length tracking field.",
+    "resolved_blocks": 1
+  },
+  {
+    "path": "drivers/video/fbcmap.c",
+    "decision": "Use stable offset bounds and size_t minimum to avoid integer underflow/overflow; covers existing vendor basic bound check.",
+    "resolved_blocks": 1
+  }
+]
